@@ -6,7 +6,8 @@ require("dotenv").config();
 const db = require("./models");
 const songRoutes = require("./routes/song.routes");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 // Middlewares
 app.use(cors({
