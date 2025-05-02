@@ -8,9 +8,14 @@ const songRoutes = require("./routes/song.routes");
 
 const PORT = 3000;
 
-
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: 'https://frontgeneromusical.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
+app.options('*', cors()); // 👈 Esto responde al preflight
+
 app.use(express.json());
 
 // Rutas
@@ -21,7 +26,6 @@ db.sequelize.sync({ force: true })
   .then(() => {
     console.log("✅ Base de datos sincronizada");
 
-    // 🔍 Prueba directa para saber si funciona el modelo
     db.songs.findAll()
       .then(data => {
         console.log("🎯 Consulta directa desde index.js:", data.length);
