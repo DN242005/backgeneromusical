@@ -6,11 +6,11 @@ module.exports = {
   PASSWORD: process.env.DB_PASSWORD,
   DB: process.env.DB_NAME,
   PORT: process.env.DB_PORT,
-  dialect: process.env.DB_DIALECT,
+  dialect: "mysql", // ✅ Solo esta línea, sin repetir
   dialectOptions: {
     ssl: {
       require: true,
       rejectUnauthorized: false,
-    }
-  }
+    },
+  },
 };
