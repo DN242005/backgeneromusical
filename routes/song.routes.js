@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controllers/songController");
+const controller = require("../controllers/song.controller");
 
 // Crear canción
 router.post("/songs", controller.createSong);
